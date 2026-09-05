@@ -1,0 +1,16 @@
+name: workspace_root
+description: Monorepo workspace root for BlogStore.
+publish_to: 'none'
+
+environment:
+  sdk: '^3.11.0'
+
+workspace:
+  - apps/blogstore
+  - packages/core_ui
+  - packages/domain
+  - packages/infrastructure
+  - packages/features/blog
+
+dev_dependencies:
+  kaisel_lint: any

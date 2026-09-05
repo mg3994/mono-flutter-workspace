@@ -1,0 +1,18 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace "in.antinna.blogstore"
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "in.antinna.blogstore"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+    }
+}

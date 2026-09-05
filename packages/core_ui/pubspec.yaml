@@ -1,0 +1,23 @@
+name: core_ui
+description: Core UI foundation widgets, themes, and presentation utilities.
+version: 0.1.0
+publish_to: 'none'
+
+resolution: workspace
+
+environment:
+  sdk: '^3.11.0'
+  flutter: '>=3.19.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: any
+  intl: any
+  cupertino_ui: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

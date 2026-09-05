@@ -1,0 +1,21 @@
+name: blog
+description: Blog presentation feature package.
+version: 0.1.0
+publish_to: 'none'
+
+resolution: workspace
+
+environment:
+  sdk: '^3.11.0'
+  flutter: '>=3.19.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  domain:
+  core_ui:
+  bloc_signals_flutter: ^1.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
