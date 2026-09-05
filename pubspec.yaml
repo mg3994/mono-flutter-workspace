@@ -17,4 +17,5 @@ workspace:
   - packages/l10n
 
 dev_dependencies:
+  build_runner: ^2.15.1
   kaisel_lint: any
