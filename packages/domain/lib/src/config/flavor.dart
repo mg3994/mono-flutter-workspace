@@ -1,9 +1,13 @@
 import 'package:flutter/foundation.dart';
 
 enum Flavor {
-  development,
-  staging,
-  production;
+  development(baseUrl: 'https://api.dev.yourdomain.com'),
+  staging(baseUrl: 'https://api.stg.yourdomain.com'),
+  production(baseUrl: 'https://api.prod.yourdomain.com');
+
+  const Flavor({required this.baseUrl});
+
+  final String baseUrl;
 
   static Flavor fromString(String? value) {
     return switch (value?.toLowerCase()) {
@@ -28,22 +32,11 @@ enum BuildMode {
   }
 }
 
-abstract interface class FlavorConfig {
-  const FlavorConfig._(this.flavor);
+final class FlavorConfig {
+  const FlavorConfig({required this.flavor, required this.buildMode});
 
   final Flavor flavor;
+  final BuildMode buildMode;
 
-  String get baseUrl => switch (flavor) {
-    Flavor.development => 'https://api.dev.yourdomain.com',
-    Flavor.staging => 'https://api.stg.yourdomain.com',
-    Flavor.production => 'https://api.prod.yourdomain.com',
-  };
-
-  const factory FlavorConfig(Flavor flavor) = _FlavorConfig;
-
-  BuildMode get buildMode => BuildMode.current;
-}
-
-final class _FlavorConfig extends FlavorConfig {
-  const _FlavorConfig(super.flavor) : super._();
+  String get baseUrl => flavor.baseUrl;
 }
