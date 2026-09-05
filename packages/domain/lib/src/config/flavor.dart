@@ -29,10 +29,15 @@ enum BuildMode {
 }
 
 abstract interface class FlavorConfig {
-  const FlavorConfig._(this.baseUrl, this.flavor);
+  const FlavorConfig._(this.flavor);
 
-  final String baseUrl;
   final Flavor flavor;
+
+  String get baseUrl => switch (flavor) {
+    Flavor.development => 'https://api.dev.yourdomain.com',
+    Flavor.staging => 'https://api.stg.yourdomain.com',
+    Flavor.production => 'https://api.prod.yourdomain.com',
+  };
 
   const factory FlavorConfig(Flavor flavor) = _FlavorConfig;
 
@@ -40,10 +45,5 @@ abstract interface class FlavorConfig {
 }
 
 final class _FlavorConfig extends FlavorConfig {
-  const _FlavorConfig(Flavor flavor)
-    : super._(switch (flavor) {
-        Flavor.development => 'https://api.dev.yourdomain.com',
-        Flavor.staging => 'https://api.stg.yourdomain.com',
-        Flavor.production => 'https://api.prod.yourdomain.com',
-      }, flavor);
+  const _FlavorConfig(super.flavor) : super._();
 }
