@@ -1,6 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart' show User, UserCredential;
+import 'package:firebase_auth/firebase_auth.dart';
 
-abstract interface class AuthRepository {
+abstract class IAuthRepository {
   Stream<User?> get authStateChanges;
 
   Future<UserCredential?> signInWithEmail({

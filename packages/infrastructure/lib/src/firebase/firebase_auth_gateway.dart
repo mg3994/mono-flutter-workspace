@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../../core/auth/auth_gateway.dart';
+import 'package:domain/domain.dart';
 
 final class FirebaseAuthGateway implements AuthGateway {
   FirebaseAuthGateway(this._auth);

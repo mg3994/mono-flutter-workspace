@@ -1,9 +1,7 @@
 import '../entities/store_product.dart';
-import '../entities/catalog_filter.dart';
+import '../result.dart';
 
-abstract interface class CatalogRepository {
-  Future<List<StoreProduct>> getProducts({
-    CatalogFilter filter = const CatalogFilter(),
-    bool forceRefresh = false,
-  });
+abstract class ICatalogRepository {
+  Future<List<StoreProduct>> getProducts();
+  Future<Result<StoreProduct>> getProductById(String id);
 }

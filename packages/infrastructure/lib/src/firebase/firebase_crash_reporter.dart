@@ -1,7 +1,7 @@
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart'; // Gives you kIsWeb
 
-import '../../core/monitoring/crash_reporter.dart';
+import 'package:domain/domain.dart';
 
 final class FirebaseCrashReporter implements CrashReporter {
   // 1. Make this nullable so you can pass null when running on Web

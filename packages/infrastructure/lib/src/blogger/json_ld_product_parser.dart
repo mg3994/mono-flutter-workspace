@@ -1,6 +1,6 @@
 import '../../features/catalog/data/models/store_product_model.dart';
 import '../../features/catalog/domain/entities/service_area.dart';
-import '../../shared/i18n/json_ld_localized_value_reader.dart';
+import 'package:core_ui/core_ui.dart';
 import 'json_ld_document_extractor.dart';
 
 final class JsonLdProductParser {

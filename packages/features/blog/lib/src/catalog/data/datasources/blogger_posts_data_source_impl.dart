@@ -1,6 +1,6 @@
-import '../../../../config/app_config.dart';
+import 'package:blogstore/config/app_config.dart';
 import '../../../../core/auth/access_token_provider.dart';
-import '../../../../core/network/api_client.dart';
+import 'package:infrastructure/infrastructure.dart';
 import '../../../../infrastructure/blogger/json_ld_document_extractor.dart';
 import '../../domain/entities/catalog_filter.dart';
 import '../models/blogger_post_model.dart';

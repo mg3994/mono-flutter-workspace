@@ -35,18 +35,18 @@ import '../features/settings/app_setting/domain/usecases/watch_app_settings.dart
 import '../features/settings/app_setting/presentation/bloc/app_setting_bloc.dart'
     show AppSettingBloc;
 import '../firebase_web_config.dart' show FirebaseWebConfig;
-import '../infrastructure/auth/firebase_access_token_provider.dart'
+import 'package:infrastructure/src/auth/firebase_access_token_provider.dart'
     show FirebaseAccessTokenProvider;
-import '../infrastructure/database/drift/app_database.dart' show AppDatabase;
-import '../infrastructure/firebase/firebase_analytics_gateway.dart'
+import 'package:infrastructure/src/database/drift/app_database.dart' show AppDatabase;
+import 'package:infrastructure/src/firebase/firebase_analytics_gateway.dart'
     show FirebaseAnalyticsGateway;
-import '../infrastructure/firebase/firebase_crash_reporter.dart'
+import 'package:infrastructure/src/firebase/firebase_crash_reporter.dart'
     show FirebaseCrashReporter;
-import '../infrastructure/firebase/firebase_initializer.dart'
+import 'package:infrastructure/src/firebase/firebase_initializer.dart'
     show DefaultFirebaseInitializer, FirebaseInitializer;
-import '../infrastructure/firebase/firebase_notification_gateway.dart'
+import 'package:infrastructure/src/firebase/firebase_notification_gateway.dart'
     show FirebaseNotificationGateway;
-import '../infrastructure/location/geolocator_location_service.dart'
+import 'package:infrastructure/src/location/geolocator_location_service.dart'
     show GeolocatorLocationService;
 
 final class Dependencies {

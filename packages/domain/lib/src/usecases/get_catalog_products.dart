@@ -4,7 +4,7 @@ import '../failure.dart';
 import '../result.dart';
 
 class GetCatalogProducts {
-  final CatalogRepository _repository;
+  final ICatalogRepository _repository;
 
   GetCatalogProducts(this._repository);
 

@@ -1,4 +1,4 @@
-import '../../../../core/network/api_client.dart';
+import 'package:infrastructure/infrastructure.dart';
 import '../../../../core/network/api_scope.dart';
 import '../../../../infrastructure/blogger/json_ld_product_parser.dart';
 import '../models/store_product_model.dart';
