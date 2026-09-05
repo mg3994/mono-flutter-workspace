@@ -1,7 +1,7 @@
 import 'dart:ui' show DisplayFeature, DisplayFeatureType;
 
 import 'package:bloc_signals_flutter/bloc_signals_flutter.dart';
-import 'package:blogstore/app/helpers/extensions.dart';
+import 'package:core_ui/core_ui.dart';
 import 'package:blogstore/injection/dependency_injection.dart'
     show Dependencies;
 import 'package:kaisel/kaisel.dart';

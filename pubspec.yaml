@@ -11,6 +11,9 @@ workspace:
   - packages/domain
   - packages/infrastructure
   - packages/features/blog
+  - packages/features/auth
+  - packages/features/onboarding
+  - packages/features/settings
   - packages/l10n
 
 dev_dependencies:

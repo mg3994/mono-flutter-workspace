@@ -37,7 +37,8 @@ import '../features/settings/app_setting/presentation/bloc/app_setting_bloc.dart
 import '../firebase_web_config.dart' show FirebaseWebConfig;
 import 'package:infrastructure/src/auth/firebase_access_token_provider.dart'
     show FirebaseAccessTokenProvider;
-import 'package:infrastructure/src/database/drift/app_database.dart' show AppDatabase;
+import 'package:infrastructure/src/database/drift/app_database.dart'
+    show AppDatabase;
 import 'package:infrastructure/src/firebase/firebase_analytics_gateway.dart'
     show FirebaseAnalyticsGateway;
 import 'package:infrastructure/src/firebase/firebase_crash_reporter.dart'

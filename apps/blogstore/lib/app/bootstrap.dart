@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:bloc_signals_flutter/bloc_signals_flutter.dart'
     show BlocSignalBuilder, MultiBlocSignalProvider, BlocSignalProvider;
-import 'package:blogstore/app/helpers/extensions.dart';
+import 'package:core_ui/core_ui.dart';
 import 'package:blogstore/app/router/router.dart' show AppRouter;
 import 'package:cupertino_ui/cupertino_ui.dart'
     show GlobalCupertinoLocalizations;

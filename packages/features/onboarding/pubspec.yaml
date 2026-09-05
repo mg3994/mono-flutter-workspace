@@ -1,6 +1,6 @@
-name: blogstore
-description: Primary BlogStore application (in.antinna.blogstore).
-version: 1.0.0+1
+name: onboarding
+description: Onboarding feature package for BlogStore.
+version: 0.1.0
 publish_to: 'none'
 
 resolution: workspace
@@ -12,16 +12,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  kaisel: ^1.1.0
-  bloc_signals_flutter: ^1.2.0
   domain:
-  infrastructure:
   core_ui:
   l10n:
-  blog:
-  auth:
-  onboarding:
-  settings:
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,4 @@
-import 'package:blogstore/config/app_config.dart';
+import 'package:domain/domain.dart';
 import '../../../../core/auth/access_token_provider.dart';
 import 'package:infrastructure/infrastructure.dart';
 import '../../../../infrastructure/blogger/json_ld_document_extractor.dart';
