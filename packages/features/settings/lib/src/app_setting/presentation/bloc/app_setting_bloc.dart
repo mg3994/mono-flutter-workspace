@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc_signals_flutter/bloc_signals_flutter.dart';
-import 'package:flutter/material.dart'
-    show Color, Colors, Locale, ThemeMode;
+import 'package:flutter/material.dart' show Color, Colors, Locale, ThemeMode;
 
 import '../../../../../config/app_config.dart' show AppConfig;
 import '../../../../../core/monitoring/crash_reporter.dart' show CrashReporter;
