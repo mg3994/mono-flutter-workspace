@@ -6,3 +6,7 @@
 build/
 *.so
 local.properties
+packages/**/.dart_tool/
+packages/**/build/
+apps/**/.dart_tool/
+apps/**/build/

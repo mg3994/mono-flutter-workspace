@@ -45,7 +45,7 @@ import '../features/settings/app_setting/presentation/bloc/app_setting_bloc.dart
     show AppSettingBloc, AppSettingState;
 import '../features/settings/privacy_setting/privacy_setting.dart'
     show AnalyticsConsentModal;
-import '../generated/app_localizations.dart';
+import 'package:l10n/l10n.dart';
 import '../infrastructure/firebase/notifications/background_messaging.dart'
     show firebaseMessagingBackgroundHandler;
 import '../injection/dependency_injection.dart'

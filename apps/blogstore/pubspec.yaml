@@ -17,6 +17,7 @@ dependencies:
   domain:
   infrastructure:
   core_ui:
+  l10n:
   blog:
 
 dev_dependencies:
