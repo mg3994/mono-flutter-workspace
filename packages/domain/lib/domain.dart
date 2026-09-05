@@ -5,6 +5,8 @@ export 'src/failure.dart';
 export 'src/app_exception.dart';
 export 'src/result.dart';
 
+export 'src/config/flavor.dart';
+
 export 'src/entities/blogger_post.dart';
 export 'src/entities/catalog_filter.dart';
 export 'src/entities/service_area.dart';

@@ -1,9 +1,4 @@
-library;
-
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
-
-part 'src/flavor_configs.dart';
 
 enum Flavor {
   development,
@@ -33,20 +28,9 @@ enum BuildMode {
   }
 }
 
-abstract interface class FlavorConfig {
-  const FlavorConfig._(this.baseUrl, this.flavor);
-
-  final String baseUrl;
-  final Flavor flavor;
-
-  factory FlavorConfig({String? flavorName = appFlavor}) {
-    final flavor = Flavor.fromString(flavorName);
-    return switch (flavor) {
-      Flavor.development => const _DevCfg(),
-      Flavor.staging => const _StgCfg(),
-      Flavor.production => const _ProdCfg(),
-    };
-  }
-
+/// Abstract domain contract for flavor configurations.
+abstract interface class IFlavorConfig {
+  String get baseUrl;
+  Flavor get flavor;
   BuildMode get buildMode => BuildMode.current;
 }
