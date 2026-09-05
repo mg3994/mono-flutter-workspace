@@ -28,9 +28,22 @@ enum BuildMode {
   }
 }
 
-/// Abstract domain contract for flavor configurations.
-abstract interface class IFlavorConfig {
-  String get baseUrl;
-  Flavor get flavor;
+abstract interface class FlavorConfig {
+  const FlavorConfig._(this.baseUrl, this.flavor);
+
+  final String baseUrl;
+  final Flavor flavor;
+
+  const factory FlavorConfig(Flavor flavor) = _FlavorConfig;
+
   BuildMode get buildMode => BuildMode.current;
+}
+
+final class _FlavorConfig extends FlavorConfig {
+  const _FlavorConfig(Flavor flavor)
+    : super._(switch (flavor) {
+        Flavor.development => 'https://api.dev.yourdomain.com',
+        Flavor.staging => 'https://api.stg.yourdomain.com',
+        Flavor.production => 'https://api.prod.yourdomain.com',
+      }, flavor);
 }
