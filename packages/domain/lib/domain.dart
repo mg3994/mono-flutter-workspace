@@ -1,18 +1,18 @@
 /// Domain layer public contracts, entities, and usecases.
 library domain;
 
-import 'src/config/build_mode_interface.dart';
 import 'src/config/flavor.dart';
-import 'src/config/flavor_config.dart';
-import 'src/config/flavor_interface.dart';
+import 'src/contracts/config/i_build_mode.dart';
+import 'src/contracts/config/i_flavor.dart';
+import 'src/contracts/config/i_flavor_config.dart';
 
 export 'src/failure.dart';
 export 'src/app_exception.dart';
 export 'src/result.dart';
 
-export 'src/config/flavor_interface.dart';
-export 'src/config/build_mode_interface.dart';
-export 'src/config/flavor_config.dart';
+export 'src/contracts/config/i_flavor.dart';
+export 'src/contracts/config/i_build_mode.dart';
+export 'src/contracts/config/i_flavor_config.dart';
 export 'src/config/flavor.dart';
 
 typedef AppFlavorConfig = FlavorConfig<Flavor, BuildMode>;

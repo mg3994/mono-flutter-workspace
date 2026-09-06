@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
-import 'build_mode_interface.dart';
-import 'flavor_interface.dart';
+import '../contracts/config/i_build_mode.dart';
+import '../contracts/config/i_flavor.dart';
 
-enum BuildMode implements BuildModeInterface {
+enum BuildMode implements IBuildMode {
   debug,
   profile,
   release;
@@ -24,7 +24,7 @@ enum BuildMode implements BuildModeInterface {
   }
 }
 
-enum Flavor implements FlavorInterface {
+enum Flavor implements IFlavor {
   development(
     baseUrl: String.fromEnvironment(
       'DEV_BLOGGER_URL',
