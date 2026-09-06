@@ -1,12 +1,54 @@
 import 'package:flutter/foundation.dart';
+import 'build_mode_interface.dart';
+import 'flavor_interface.dart';
 
-enum Flavor {
-  development(baseUrl: 'https://api.dev.yourdomain.com'),
-  staging(baseUrl: 'https://api.stg.yourdomain.com'),
-  production(baseUrl: 'https://api.prod.yourdomain.com');
+enum BuildMode implements BuildModeInterface {
+  debug,
+  profile,
+  release;
+
+  static BuildMode get current {
+    if (kDebugMode) {
+      return BuildMode.debug;
+    }
+
+    if (kProfileMode) {
+      return BuildMode.profile;
+    }
+
+    if (kReleaseMode) {
+      return BuildMode.release;
+    }
+
+    throw UnimplementedError('Active environment build mode is unrecognized.');
+  }
+}
+
+enum Flavor implements FlavorInterface {
+  development(
+    baseUrl: String.fromEnvironment(
+      'DEV_BLOGGER_URL',
+      defaultValue: 'https://api.dev.yourdomain.com',
+    ),
+  ),
+
+  staging(
+    baseUrl: String.fromEnvironment(
+      'STG_BLOGGER_URL',
+      defaultValue: 'https://api.stg.yourdomain.com',
+    ),
+  ),
+
+  production(
+    baseUrl: String.fromEnvironment(
+      'PROD_BLOGGER_URL',
+      defaultValue: 'https://api.prod.yourdomain.com',
+    ),
+  );
 
   const Flavor({required this.baseUrl});
 
+  @override
   final String baseUrl;
 
   static Flavor fromString(String? value) {
@@ -17,26 +59,4 @@ enum Flavor {
       _ => Flavor.production,
     };
   }
-}
-
-enum BuildMode {
-  debug,
-  profile,
-  release;
-
-  static BuildMode get current {
-    if (kDebugMode) return BuildMode.debug;
-    if (kProfileMode) return BuildMode.profile;
-    if (kReleaseMode) return BuildMode.release;
-    throw UnimplementedError('Active environment build mode is unrecognized.');
-  }
-}
-
-final class FlavorConfig {
-  const FlavorConfig({required this.flavor, required this.buildMode});
-
-  final Flavor flavor;
-  final BuildMode buildMode;
-
-  String get baseUrl => flavor.baseUrl;
 }
