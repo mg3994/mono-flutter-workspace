@@ -1,32 +1,32 @@
 ---
 name: solid-clean-architecture
-description: Clean Architecture principles, inward dependency direction rules, SOLID design, and LEGO brick swappability.
+description: Clean Architecture principles, feature-driven layer isolation, SOLID design, and LEGO brick swappability.
 ---
 
 # Skill: SOLID & Clean Architecture
 
-Use this skill whenever an agent creates or refactors a Flutter package, service, or feature.
+Use this skill whenever creating or refactoring a Flutter package, service, or feature.
 
-## 1. Dependency Direction
+## 1. Feature-Driven Clean Architecture Layers
 
-The dependency graph points strictly inward:
+1. **Domain Layer (`packages/domain` or `<feature>/domain`)**:
+   - Holds pure business entities, value objects, domain failures (`Failure`), and repository interfaces starting with `I` (e.g. `ICatalogRepository`).
+   - Must remain pure Dart (zero vendor SDK or UI dependencies).
 
-`apps/main_app` -> `packages/features` -> `packages/domain`
-`apps/main_app` -> `packages/infrastructure` -> `packages/domain`
+2. **Data / Infrastructure Layer (`packages/infrastructure` or `<feature>/data`)**:
+   - Implements domain repository interfaces using concrete IO technologies (Drift, Dio, Firebase, Geolocator).
+   - Maps low-level DTOs/rows into domain entities before returning data to domain callers.
 
-- `packages/features` depends on `packages/core_ui` and `packages/domain`.
-- `packages/domain` is pure Dart (no Flutter, Dio, Drift, or Firebase imports).
-- The composition root in `apps/main_app` is the only place where concrete infrastructure is bound to domain contracts and where `kaisel` configures app routing.
+3. **Presentation / Feature Layer (`packages/features/<name>`)**:
+   - Manages UI state using Signals (`bloc_signals_flutter`) or Bloc.
+   - Depends only on `domain` and `core_ui` (never on `infrastructure` directly).
 
-## 2. SOLID Rules for Agents
+4. **Composition Root (`apps/blogstore`)**:
+   - Binds concrete infrastructure implementations to domain contracts using constructor dependency injection.
+   - Sets up application routing (`kaisel`) and bootstrap lifecycle.
 
-1. **Single Responsibility**: Separate presentation, orchestration, domain logic, and IO into distinct files and packages.
-2. **Open/Closed**: Add new capability adapters behind existing domain interfaces rather than mutating callers.
-3. **Liskov Substitution**: Adapters must strictly fulfill error, nullability, and lifecycle expectations promised by domain interfaces.
-4. **Interface Segregation**: Prefer small, focused capability interfaces (`IAuthService`, `IUserRepository`).
-5. **Dependency Inversion**: High-level feature code depends on abstractions; concrete classes are injected at runtime.
+## 2. SOLID Rules
 
-## 3. Boundary Shielding & LEGO Acceptance Test
-
-- **Boundary Shielding**: DTOs, Drift rows, Dio exceptions, and Firebase types must stop at the infrastructure boundary. Map them to domain entities and domain failure objects before returning to domain or presentation.
-- **LEGO Acceptance Test**: A package brick is swappable when replacing its adapter requires edits ONLY in that brick plus composition-root DI registration and `kaisel` route registration in `apps/main_app`.
+- **Single Responsibility**: Separate data sources, domain logic, state management, and UI into distinct modules.
+- **Dependency Inversion**: Feature controllers depend on domain abstractions rather than concrete API/database implementations.
+- **LEGO Swappability**: Adapters can be replaced without editing feature widgets or domain entities.

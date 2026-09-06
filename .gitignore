@@ -1,0 +1,12 @@
+# Build artifacts
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+*.so
+local.properties
+packages/**/.dart_tool/
+packages/**/build/
+apps/**/.dart_tool/
+apps/**/build/

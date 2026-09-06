@@ -1,0 +1,31 @@
+name: blogstore
+description: Primary BlogStore application (in.antinna.blogstore).
+version: 1.0.0+1
+publish_to: 'none'
+
+resolution: workspace
+
+environment:
+  sdk: '^3.11.0'
+  flutter: '>=3.19.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  kaisel: ^1.1.0
+  bloc_signals_flutter: ^1.2.0
+  domain:
+  infrastructure:
+  core_ui:
+  l10n:
+  blog:
+  auth:
+  onboarding:
+  settings:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  generate: true
